@@ -1,0 +1,113 @@
+\documentclass[14pt, a4paper]{extreport}
+
+\newcommand{\comment}[1]{}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1, T2A]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{listings}
+\usepackage{totcount}
+\usepackage[figure,table]{totalcount}
+\usepackage{etoolbox}
+\usepackage{tocvsec2}
+\usepackage{booktabs}
+
+\setcounter{secnumdepth}{2}
+
+\regtotcounter{page}
+
+\newtotcounter{citenum}
+\def\oldcite{}
+\let\oldcite=\bibcite
+\def\bibcite{\stepcounter{citenum}\oldcite}
+
+\newtotcounter{attachcnt}
+
+\usepackage{indentfirst}
+\usepackage[left=3cm,right=1cm,
+  top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage[nodisplayskipstretch]{setspace}
+\onehalfspacing
+\sloppy
+%\parindent=1cm
+
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+\usepackage{titlesec}
+\titleformat{\chapter}[display]{\filcenter\bfseries\Large}{}{8pt}{}{}
+\titleformat{\section}{\bfseries\Large}{\thesection}{1em}{}{}
+\titleformat{\subsection}{\bfseries\normalsize}{\thesubsection}{1em}{}{}
+\titleformat{\subsubsection}{\bfseries\normalsize}{}{1em}{}{}
+
+% Настройка вертикальных и горизонтальных отступов
+\titlespacing*{\chapter}{0pt}{-30pt}{*2}
+\titlespacing*{\section}{\parindent}{*2}{*1}
+\titlespacing*{\subsection}{\parindent}{*2}{*1}
+\titlespacing*{\subsubsection}{\parindent}{*0.5}{*0}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[spelling=modern]{russian}
+\setotherlanguage{english}
+\defaultfontfeatures{Mapping=tex-text}
+\newfontfamily{\cyrillicfont}{Times New Roman}
+\newfontfamily{\cyrillicfonttt}{Courier New} % шрифт URL-ссылок
+%\newfontfamily{\sourcecodefont}{Courier New}
+\defaultfontfeatures{Ligatures={TeX},Renderer=Basic}    %% свойства шрифтов по умолчанию
+\setmainfont[Ligatures={TeX,Historic}]{Times New Roman} %% задаёт основной шрифт документа
+%% \setsansfont{CMU Sans Serif}                         %% задаёт шрифт без засечек
+\setmonofont{Courier New}                               %% задаёт моноширинный шрифт
+
+\newcommand{\fixedspaceword}[2][1]{%
+  \begingroup
+  \spaceskip=#1\fontdimen2\font
+  \xspaceskip=0pt\relax % just to be sure
+  #2%
+  \endgroup
+}
+
+% объявляем новую команду для переноса строки внутри ячейки таблицы
+\newcommand{\spcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\bibliographystyle{gost705}
+
+\makeatletter
+\def\@biblabel#1{#1. }
+\makeatother
+
+\usepackage{caption}
+\AtBeginDocument{%
+  \def\contentsname{ОГЛАВЛЕНИЕ}
+  \def\bibname{СПИСОК ИСПОЛЬЗОВАННОЙ ЛИТЕРАТУРЫ}
+  \renewcommand{\figurename}{Рисунок}
+  \renewcommand{\tablename}{Таблица}
+  \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+  \renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
+  \renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+}
+
+\author{Великий Студент Анонимович}
+\date{\today}
+
+\title{Дипломная работа\\
+  <<Методы написания дипломной работы в последний момент перед предзащитой>>}
+
+\hypersetup{
+  pdfauthor={Великий С.А.},
+  pdftitle={Методы написания дипломной работы в последний момент перед предзащитой},
+  pdfkeywords={СПИСОК КЛЮЧЕВЫХ СЛОВ, КАСАЮЩИХСЯ ТЕМЫ РАБОТЫ},
+  pdfsubject={Тема работы},
+  pdfcreator={xelatex},
+  pdflang={Russian}}

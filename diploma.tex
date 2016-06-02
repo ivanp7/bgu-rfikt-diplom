@@ -1,0 +1,109 @@
+% Created 2016-05-16 Mon 02:22
+
+\input{diploma-preamble}
+
+\begin{document}
+
+%%% начало документа
+%%% заглушка титульного листа, настоящий делать на основе образца в файле Titul.doc
+
+\maketitle
+
+%%% описание рефератов
+
+\setcounter{page}{2}
+
+\settocdepth{chapter}
+
+\chapter*{РЕФЕРАТ}
+\input{diploma-abstract-ru}
+
+\chapter*{РЭФЕРАТ}
+\input{diploma-abstract-by}
+
+\chapter*{ABSTRACT}
+\input{diploma-abstract-en}
+
+%%% оглавление
+
+\tableofcontents
+
+%%% описание введения
+
+\phantomsection
+\chapter*{ВВЕДЕНИЕ}
+\addcontentsline{toc}{chapter}{Введение}
+
+\input{diploma-introduction}
+
+\settocdepth{subsection}
+
+%%% описание главы 1
+
+\stepcounter{chapter}
+\phantomsection
+\chapter*{ГЛАВА 1\\
+  НАЗВАНИЕ ГЛАВЫ}
+\addcontentsline{toc}{chapter}{Глава 1. Название главы}
+\setcounter{section}{0}
+
+\input{diploma-chapter-1}
+
+%%% описание главы 2
+
+\stepcounter{chapter}
+\phantomsection
+\chapter*{ГЛАВА 2\\
+  НАЗВАНИЕ ГЛАВЫ}
+\addcontentsline{toc}{chapter}{Глава 2. Название главы}
+\setcounter{section}{0}
+
+\input{diploma-chapter-2}
+
+%%% описание главы 3
+
+\stepcounter{chapter}
+\phantomsection
+\chapter*{ГЛАВА 3\\
+  НАЗВАНИЕ ГЛАВЫ}
+\addcontentsline{toc}{chapter}{Глава 3. Название главы}
+\setcounter{section}{0}
+
+\input{diploma-chapter-3}
+
+%%% описание заключения
+
+\settocdepth{chapter}
+
+\setcounter{chapter}{0}
+\phantomsection
+\chapter*{ЗАКЛЮЧЕНИЕ}
+\addcontentsline{toc}{chapter}{Заключение}
+
+\input{diploma-conclusion}
+
+%%% описание библиографии
+
+\nocite{*}
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Список использованной литературы}
+
+{\small \bibliography{diploma-bibliography}}
+
+%%% описание приложения
+
+\phantomsection
+% хак для выравнивания слова "Приложение" по правому краю - куча неразрывных пробелов:
+\chapter*{~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ПРИЛОЖЕНИЕ\\
+  НАЗВАНИЕ ПРИЛОЖЕНИЯ}
+\addcontentsline{toc}{chapter}{Приложение. Название приложения}
+\stepcounter{attachcnt}
+
+\input{diploma-attachment}
+
+%%% конец документа
+
+\end{document}
